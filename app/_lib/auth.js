@@ -8,6 +8,10 @@ import Google from "next-auth/providers/google";
 //       clientSecret: process.env.AUTH_GOOGLE_SECRET,
 //     }),
 //   ],
+//   callbacks: {
+//     authorized({auth, request}) {
+//          return !!auth?.user
+//       }
 // };
 
 export const { handlers: {GET, POST}, auth, signIn, signOut } = NextAuth({
@@ -21,5 +25,8 @@ export const { handlers: {GET, POST}, auth, signIn, signOut } = NextAuth({
     authorized({auth, request}) {
       return !!auth?.user
     }
+  },
+  pages: {
+    signIn: '/login'
   }
 });
