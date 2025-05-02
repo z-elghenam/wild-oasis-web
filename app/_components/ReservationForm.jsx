@@ -10,7 +10,12 @@ function ReservationForm({ cabin, user }) {
   // CHANGE
   const { maxCapacity, regularPrice, discount, id } = cabin;
 
+<<<<<<< HEAD
 
+=======
+  const startDate = range?.from;
+  const endDate = range?.to;
+>>>>>>> d04c301e8d2fd684e24a388a01cc7e0888ea6c62
 
   const numNights = differenceInDays(endDate, startDate);
   const cabinPrice = numNights * (regularPrice - discount);
@@ -45,7 +50,16 @@ function ReservationForm({ cabin, user }) {
         </div>
       </div>
 
+<<<<<<< HEAD
       <form        
+=======
+      <form
+        // action={createBookingWithData}
+        action={async (formData) => {
+          await createBookingWithData(formData);
+          resetRange();
+        }}
+>>>>>>> d04c301e8d2fd684e24a388a01cc7e0888ea6c62
         className="bg-primary-900 py-10 px-16 text-lg flex gap-5 flex-col"
       >
         <div className="space-y-2">
@@ -80,7 +94,11 @@ function ReservationForm({ cabin, user }) {
         </div>
 
         <div className="flex justify-end items-center gap-6">
+<<<<<<< HEAD
           {}
+=======
+          {!(startDate && endDate) ? (
+>>>>>>> d04c301e8d2fd684e24a388a01cc7e0888ea6c62
             <p className="text-primary-300 text-base">
               Start by selecting dates
             </p>
