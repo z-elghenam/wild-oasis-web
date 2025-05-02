@@ -3,6 +3,7 @@ import Reservation from "@/app/_components/Reservation";
 import { Suspense } from "react";
 import Spinner from "@/app/_components/Spinner";
 import Cabin from "@/app/_components/Cabin";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
   const { cabinId } = await params;
@@ -13,6 +14,8 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
   const { cabinId } = await params;
   const cabin = await getCabin(cabinId);
+
+  if (!cabin) return notFound();
 
   return (
     <div className="max-w-6xl mx-auto mt-8">
