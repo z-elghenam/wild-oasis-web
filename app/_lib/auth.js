@@ -24,17 +24,12 @@ export const {
   providers: [
     Google({
       clientId: process.env.AUTH_GOOGLE_ID,
-      clientSecret: process.env.AUTH_GOOGLE_SECRET
+      clientSecret: process.env.AUTH_GOOGLE_SECRET,
     }),
   ],
   callbacks: {
-<<<<<<< HEAD
     authorized({ auth, request }) {
       return !!auth?.user;
-=======
-    authorized({auth, request}) {
-      return !!auth?.user
->>>>>>> d04c301e8d2fd684e24a388a01cc7e0888ea6c62
     },
     async signIn({ user, account, profile }) {
       try {
